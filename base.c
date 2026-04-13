@@ -3,19 +3,6 @@
 #include <string.h>
 
 
-char replaceChar(char c){
-    if(c == 'H'){
-        return 'B';
-    }
-    if(c == 'E'){
-        return 'Y';
-    }
-    if(c == 'Y'){
-        return 'E';
-    }
-    return c;
-}
-
 char my_get(char c){
     return (char)fgetc(stdin);
 }
@@ -65,16 +52,3 @@ char* map(char *array, int array_length, char (*f) (char)){
     return mapped_array;
 }
  
-int main(int argc, char **argv){
-  /* TODO: Test your code */
-    int base_len = 5;
-    char arr1[base_len];
-    char* arr2 = map(arr1, base_len, my_get);
-    char* arr3 = map(arr2, base_len, dprt);
-    char* arr4 = map(arr3, base_len, cxprt);
-    free(arr2);
-    free(arr3);
-    free(arr4);
-
-    return 0;
-}

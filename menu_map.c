@@ -29,7 +29,7 @@ void print_menu(struct fun_desc menu[]){
     fputs("Enter the function index to run\n", outfile);
 }
 
-int menu(int argc, char **argv){
+int main(int argc, char **argv){
     infile=stdin;
     outfile=stdout;
     char arr[5] = "";
@@ -64,6 +64,9 @@ int menu(int argc, char **argv){
                 break;
             }
             i++;
+        }
+        if(i == 5){
+            fputs("function not supported!\n",outfile);
         }
     }
     return 0;
