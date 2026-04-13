@@ -2,7 +2,7 @@ CC = gcc
 
 CFLAGS = -Wall -g
 
-all: count-words addresses
+all: count-words addresses base
 
 count-words: count-words.c
 	$(CC) $(CFLAGS) -o count-words count-words.c
@@ -12,5 +12,8 @@ count-words: count-words.c
 addresses: addresses.c
 	$(CC) $(CFLAGS) -m32 -o addresses addresses.c
 
+base: base.c
+	$(CC) $(CFLAGS) -o base base.c
+
 clean:
-	rm -f count-words addresses
+	rm -f count-words addresses base

@@ -20,12 +20,12 @@ int secondary(int x)
     int addr3;
     char *yos = "ree";
     int *addr4 = (int *)(malloc(50));
-	int iarray[3];
-    float farray[3];
-    double darray[3];
-    char carray[3]; 
-	int iarray2[] = {1,2,3};
-    char carray2[] = {'a','b','c'};
+	int iarray[2];
+    float farray[2];
+    double darray[2];
+    char carray[2]; 
+	int iarray2[] = {1,2,3,4};
+    char carray2[] = {'a','b','c','d'};
     int* iarray2Ptr;
     char* carray2Ptr; 
     
@@ -65,10 +65,22 @@ int secondary(int x)
 
     /* task 1 b here */
     
-    printf("Pointers and arrays (T1d): ");
+    printf("Pointers and arrays (T1d): \n");
 
     /* task 1 d here */
-    
+    iarray2Ptr = iarray2;
+    carray2Ptr = carray2;
+
+    for(int i=0; i<4; i++){
+        printf("iarray value in index %d: %d\n", i, *(iarray2Ptr + i));
+    }
+
+    for(int i=0; i<4; i++){
+        printf("carray value in index %d: %c\n", i, *(carray2Ptr + i));
+    }
+
+    int* p;
+    printf("Pointer p value is: %p\n",p);
 
 }
 
@@ -85,6 +97,11 @@ int main(int argc, char **argv)
     
     printf("Command line arg addresses (T1e):\n");
     /* task 1 e here */
+    for(int i = 0;i < argc;i++){
+        printf("--- in command #%d\n", i);
+        printf("Pointer address is: %p\n", &argv[i]);
+        printf("Pointer value is: %p\n", argv[i]);
+    }
     
     return 0;
 }
