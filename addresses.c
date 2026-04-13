@@ -52,6 +52,17 @@ int secondary(int x)
    
     printf("Arrays Mem Layout (T1b):\n");
 
+    // int iarray[2];
+    // float farray[2];
+    // double darray[2];
+    // char carray[2];
+
+    printf("iarray: %p, iarray+1: %p\n", iarray, iarray+1);
+    printf("farray: %p, farray+1: %p\n", farray, farray+1);
+    printf("darray: %p, darray+1: %p\n", darray, darray+1);
+    printf("carray: %p, carray+1: %p\n", carray, carray+1);
+
+
     /* task 1 b here */
     
     printf("Pointers and arrays (T1d): ");
@@ -94,6 +105,7 @@ void point_at(void *p)
     
     printf("Check long type mem size (T1a):\n");
     /* part of task 1 a here */
+    printf("size of long datatype is: %ud\n", sizeof(long));
 
     printf("- addr0: %p\n", &addr0);
     printf("- addr1: %p\n", &addr1);
