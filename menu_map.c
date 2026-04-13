@@ -29,6 +29,16 @@ void print_menu(struct fun_desc menu[]){
     fputs("Enter the function index to run\n", outfile);
 }
 
+
+struct fun_desc menu[] = {
+    { "<g>et String", 'g', my_get },
+    { "print <d>ecimal", 'd', dprt },
+    { "print char and <x>hex", 'x', cxprt },
+    { "<e>ncrypt", 'e', encrypt },
+    { "de<c>rypt", 'c', decrypt },
+    { NULL, 0, NULL } // The required null terminator
+};
+
 int main(int argc, char **argv){
     infile=stdin;
     outfile=stdout;
@@ -36,14 +46,7 @@ int main(int argc, char **argv){
     char* carray = &arr[0];
 
 
-    struct fun_desc menu[] = {
-        { "<g>et String", 'g', my_get },
-        { "print <d>ecimal", 'd', dprt },
-        { "print char and <x>hex", 'x', cxprt },
-        { "<e>ncrypt", 'e', encrypt },
-        { "de<c>rypt", 'c', decrypt },
-        { NULL, 0, NULL } // The required null terminator
-    };
+
 
     fputs("Select operation from the following menu:\n", outfile);
 
@@ -60,13 +63,17 @@ int main(int argc, char **argv){
         int i=0;
         while(menu[i].name != NULL){
             if(menu[i].index == user_index){
-                carray = map(carray, sizeof(arr), menu[i].fun);
+                char* new_carray = map(carray, sizeof(arr), menu[i].fun);
+                if (carray != arr) { 
+                    free(carray);
+                }
+                carray = new_carray;
                 break;
             }
             i++;
         }
-        if(i == 5){
-            fputs("function not supported!\n",outfile);
+        if(menu[i].name == NULL){
+            fputs("function not supported!\n", outfile);
         }
     }
     return 0;
